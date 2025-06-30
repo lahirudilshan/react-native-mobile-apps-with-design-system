@@ -1,0 +1,28 @@
+# Build outputs
+lib/
+dist/
+build/
+coverage/
+
+# Dependencies
+node_modules/
+.yarn/
+
+# Cache
+.eslintcache
+*.log
+
+# OS generated files
+.DS_Store
+
+# Package files
+package-lock.json
+yarn.lock
+
+# Generated files
+*.d.ts
+*.js.map
+
+# React Native specific
+android/
+ios/

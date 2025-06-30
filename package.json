@@ -1,9 +1,42 @@
 {
   "name": "test",
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.8.1",
   "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"{packages,apps}/**/*.{ts,tsx,js,jsx,json,md,html,css,scss}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx}\" && prettier --check \"**/*.{js,jsx}\" && prettier --check \"**/*.json\" --parser json && prettier --check \"**/*.md\" --parser markdown",
+    "fix": "yarn format && yarn lint:fix",
+    "new-app": "clear && plop react-native-app",
+    "new-app-ds-config": "clear && plop react-native-app-config",
+    "update-root-script": "clear && plop update-root-scripts",
+    "clean": "clear && rm -rf node_modules",
+    "watch-clear": "watchman watch-del-all",
+    "deep-clean": "clear; echo '📦  Removing app'; cd apps/miniApps/android && ./gradlew clean; echo '🧭 Cleaning watchman cache...'; watchman watch-del-all || true; echo '📦 Removing node_modules & lock file...'; rm -rf node_modules package-lock.json yarn.lock || true; echo '🧹 Cleaning yarn cache...'; yarn cache clean || true; echo '🚀 Full cleanup completed!' \n\n'⏳ Installing dependencies...'; yarn install;",
+    "storybook:build": "storybook build",
+    "storybook:generate": "sb-rn-get-stories",
+    "storybook:web": "storybook dev -p 6006",
+    "storybook:mobile": "STORYBOOK_ENABLED=true yarn storybook:generate && yarn miniApps:dev",
+    "storybook:all": "clear && yarn storybook:web && yarn storybook:mobile",
+    "package:watch": "clear && yarn workspace @fbn/mobile-design-system watch",
+    "package:build": "clear && yarn workspace @fbn/mobile-design-system build",
+    "deps:check": "rnx-align-deps",
+    "deps:fix": "rnx-align-deps --write",
+    "miniApps:dev": "clear && yarn workspace miniApps android",
+    "miniApps:start": "clear && yarn workspace miniApps start",
+    "miniApps:start-reset": "clear && yarn workspace miniApps reset-cache",
+    "miniApps:clean": "clear && cd apps/miniApps/android && ./gradlew clean"
+  },
+  "dependencies": {
+    "@fbn/mobile-design-system": "workspace:^"
+  },
+  "devDependencies": {
+    "plop": "^4.0.1"
+  }
 }
