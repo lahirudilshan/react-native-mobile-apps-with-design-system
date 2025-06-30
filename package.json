@@ -31,12 +31,17 @@
     "miniApps:dev": "clear && yarn workspace miniApps android",
     "miniApps:start": "clear && yarn workspace miniApps start",
     "miniApps:start-reset": "clear && yarn workspace miniApps reset-cache",
-    "miniApps:clean": "clear && cd apps/miniApps/android && ./gradlew clean"
+    "miniApps:clean": "clear && cd apps/miniApps/android && ./gradlew clean",
+    "playground:dev": "clear && yarn workspace playground android",
+    "playground:start": "clear && yarn workspace playground start",
+    "playground:start-reset": "clear && yarn workspace playground reset-cache",
+    "playground:clean": "clear && cd apps/playground/android && ./gradlew clean"
   },
   "dependencies": {
     "@fbn/mobile-design-system": "workspace:^"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
     "plop": "^4.0.1"
   }
 }
