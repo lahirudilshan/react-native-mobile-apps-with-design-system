@@ -1,0 +1,54 @@
+{
+  "name": "@fbn/mobile-design-system",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "deps:check": "rnx-align-deps",
+    "deps:fix": "rnx-align-deps --write"
+  },
+  "packageManager": "yarn@4.8.1",
+  "engines": {
+    "node": ">=21.0.0"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "^19.0.0",
+    "@react-native-community/cli-platform-android": "^19.0.0",
+    "@react-native-community/cli-platform-ios": "^19.0.0",
+    "@react-native/metro-config": "^0.80.0",
+    "react": "19.1.0",
+    "react-native": "^0.80.0",
+    "typescript": "^5.8.3"
+  },
+  "rnx-kit": {
+    "kitType": "library",
+    "alignDeps": {
+      "requirements": [
+        "react-native@0.80"
+      ],
+      "capabilities": [
+        "core",
+        "react"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": "19.1.0",
+    "react-native": "^0.80.0"
+  }
+}
