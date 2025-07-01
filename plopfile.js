@@ -98,6 +98,19 @@ const commonActions = {
     path: 'package.json',
     transform: utils.updatePackageScripts,
   },
+  // Updates app's package.json with start-reset script
+  updateAppPackageJson: {
+    type: 'modify',
+    path: 'apps/{{name}}/package.json',
+    transform: (content) => {
+      const json = JSON.parse(content);
+      json.scripts = {
+        ...json.scripts,
+        'start-reset': 'npx react-native start --reset-cache',
+      };
+      return JSON.stringify(json, null, 2);
+    },
+  },
   // add copy-files
   copyFiles: {
     type: 'addMany',
@@ -171,6 +184,7 @@ module.exports = function (plop) {
       commonActions.updateSettingsGradle,
       commonActions.updateBuildGradle,
       commonActions.updatePackageJson,
+      commonActions.updateAppPackageJson, // Add this line to include the new action
       commonActions.copyFiles,
       {
         type: 'customAction',
