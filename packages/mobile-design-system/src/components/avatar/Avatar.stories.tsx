@@ -1,32 +1,79 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Avatar } from './index';
+import type { Meta, StoryObj } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof Avatar> = {
   title: 'Design System/Avatar',
   component: Avatar,
+  argTypes: {
+    name: { 
+      control: 'text',
+      description: 'The name to display initials for'
+    },
+    size: { 
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'Size of the avatar'
+    },
+    source: { 
+      control: 'object',
+      description: 'Image source for the avatar'
+    },
+    style: { 
+      control: 'object',
+      description: 'Additional styles for the avatar'
+    }
+  },
 };
 
-export const Default = () => (
-  <View style={{ padding: 20 }}>
-    <Avatar name="John Doe" />
-  </View>
-);
+export default meta;
 
-export const Small = () => (
-  <View style={{ padding: 20 }}>
-    <Avatar name="John Doe" size="small" />
-  </View>
-);
+type Story = StoryObj<typeof Avatar>;
 
-export const Medium = () => (
-  <View style={{ padding: 20 }}>
-    <Avatar name="John Doe" size="medium" />
-  </View>
-);
+export const Default: Story = {
+  args: {
+    name: 'Lahiru Dilshan',
+  },
+  render: (args) => (
+    <View style={{ padding: 20 }}>
+      <Avatar {...args} />
+    </View>
+  ),
+};
 
-export const Large = () => (
-  <View style={{ padding: 20 }}>
-    <Avatar name="John Doe" size="large" />
-  </View>
-);
+export const Small: Story = {
+  args: {
+    name: 'Lahiru Dilshan',
+    size: 'small',
+  },
+  render: (args) => (
+    <View style={{ padding: 20 }}>
+      <Avatar {...args} />
+    </View>
+  ),
+};
+
+export const Medium: Story = {
+  args: {
+    name: 'Lahiru Dilshan',
+    size: 'medium',
+  },
+  render: (args) => (
+    <View style={{ padding: 20 }}>
+      <Avatar {...args} />
+    </View>
+  ),
+};
+
+export const Large: Story = {
+  args: {
+    name: 'Lahiru Dilshan',
+    size: 'large',
+  },
+  render: (args) => (
+    <View style={{ padding: 20 }}>
+      <Avatar {...args} />
+    </View>
+  ),
+};

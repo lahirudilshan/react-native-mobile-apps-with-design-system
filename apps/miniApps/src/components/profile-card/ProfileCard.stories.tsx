@@ -1,41 +1,64 @@
 import React from 'react';
 import { View } from 'react-native';
 import { ProfileCard } from './index';
+import type { Meta, StoryObj } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof ProfileCard> = {
   title: 'MiniApps/ProfileCard',
   component: ProfileCard,
+  argTypes: {
+    name: { control: 'text' },
+    role: { control: 'text' },
+    status: {
+      control: 'select',
+      options: ['active', 'away', 'offline'],
+    },
+    onPress: { action: 'pressed' },
+  },
 };
 
-export const Active = () => (
-  <View style={{ padding: 20 }}>
-    <ProfileCard 
-      name="John Doe" 
-      role="Software Engineer" 
-      status="active" 
-      onPress={() => console.log('Profile pressed')}
-    />
-  </View>
-);
+export default meta;
 
-export const Away = () => (
-  <View style={{ padding: 20 }}>
-    <ProfileCard 
-      name="Jane Smith" 
-      role="Product Designer" 
-      status="away" 
-      onPress={() => console.log('Profile pressed')}
-    />
-  </View>
-);
+type Story = StoryObj<typeof ProfileCard>;
 
-export const Offline = () => (
-  <View style={{ padding: 20 }}>
-    <ProfileCard 
-      name="Mike Johnson" 
-      role="Project Manager" 
-      status="offline" 
-      onPress={() => console.log('Profile pressed')}
-    />
-  </View>
-);
+export const Active: Story = {
+  args: {
+    name: 'John Doe',
+    role: 'Software Engineer',
+    status: 'active',
+    onPress: () => console.log('Profile pressed'),
+  },
+  render: args => (
+    <View style={{ padding: 20 }}>
+      <ProfileCard {...args} />
+    </View>
+  ),
+};
+
+export const Away: Story = {
+  args: {
+    name: 'Jane Smith',
+    role: 'Product Designer',
+    status: 'away',
+    onPress: () => console.log('Profile pressed'),
+  },
+  render: args => (
+    <View style={{ padding: 20 }}>
+      <ProfileCard {...args} />
+    </View>
+  ),
+};
+
+export const Offline: Story = {
+  args: {
+    name: 'Mike Johnson',
+    role: 'Project Manager',
+    status: 'offline',
+    onPress: () => console.log('Profile pressed'),
+  },
+  render: args => (
+    <View style={{ padding: 20 }}>
+      <ProfileCard {...args} />
+    </View>
+  ),
+};
