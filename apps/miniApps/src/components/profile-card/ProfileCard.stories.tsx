@@ -23,7 +23,7 @@ type Story = StoryObj<typeof ProfileCard>;
 
 export const Active: Story = {
   args: {
-    name: 'John Doe',
+    name: 'Lahiru Dilshan',
     role: 'Software Engineer',
     status: 'active',
     onPress: () => console.log('Profile pressed'),
