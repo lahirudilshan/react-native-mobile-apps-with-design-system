@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "jsx": "react-native",
+    "jsx": "react-jsx",
     "declaration": true,
     "outDir": "./lib",
     "strict": true,
