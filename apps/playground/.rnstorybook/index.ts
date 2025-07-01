@@ -9,3 +9,13 @@ const StorybookUIRoot = view.getStorybookUI({
 });
 
 export default StorybookUIRoot;
+
+// create this object for reuse in web and native
+export const STORIES_LIVING_AREAS = {
+  stories: [
+    // All stories in any app
+    '../../../apps/**/*.stories.?(ts|tsx|js|jsx)', 
+    // All stories in any package
+    '../../../packages/**/src/**/*.stories.?(ts|tsx)',
+  ],
+}

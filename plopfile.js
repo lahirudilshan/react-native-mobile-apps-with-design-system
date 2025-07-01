@@ -106,6 +106,7 @@ const commonActions = {
       const json = JSON.parse(content);
       json.scripts = {
         ...json.scripts,
+        'storybook:clean': 'rm -rf node_modules/.cache/storybook',
         'start-reset': 'npx react-native start --reset-cache',
       };
       return JSON.stringify(json, null, 2);

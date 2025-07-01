@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { ProfileCard } from './index';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-native';
 
 const meta: Meta<typeof ProfileCard> = {
   title: 'MiniApps/ProfileCard',

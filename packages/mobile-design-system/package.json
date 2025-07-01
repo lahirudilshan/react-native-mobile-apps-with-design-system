@@ -14,8 +14,9 @@
     "src"
   ],
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
+    "clean": "rm -rf lib",
+    "build": "yarn clean && tsc",
+    "watch": "yarn clean && tsc --watch",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Avatar } from './index';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-native';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Design System/Avatar',

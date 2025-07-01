@@ -7,26 +7,26 @@ import "@storybook/addon-ondevice-actions/register";
 const normalizedStories = [
   {
     titlePrefix: "",
-    directory: "..",
-    files: "**/*.stories.?(ts|tsx|js|jsx)",
-    importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    directory: "../miniApps/src",
+    files: "**/*.stories.?(ts|tsx|js)",
+    importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js)?)$/,
     // @ts-ignore
     req: require.context(
-      '../..',
+      '../../miniApps/src',
       true,
-      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js)?)$/
     ),
   },
 {
     titlePrefix: "",
-    directory: "../../packages",
-    files: "**/*.stories.?(ts|tsx|js|jsx)",
-    importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    directory: "../../packages/mobile-design-system/src",
+    files: "**/*.stories.?(ts|tsx|js)",
+    importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js)?)$/,
     // @ts-ignore
     req: require.context(
-      '../../../packages',
+      '../../../packages/mobile-design-system/src',
       true,
-      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js)?)$/
     ),
   }
 ];
