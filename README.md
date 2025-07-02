@@ -1,10 +1,10 @@
-<p align="left">
+<p>
   <img src="resources/images/logo.png" alt="Project Logo" height="200" />
 </p>
 
-<h1 align="center">React Native Apps with storybook and Design System</h1>
+<h1>React Native Apps with storybook and Design System</h1>
 
-<p align="center">
+<p>
   A powerful React Native monorepo starter kit featuring a shared design system, Storybook integration, and TypeScript support. Build scalable, consistent mobile applications with reusable components, comprehensive documentation, and modern development tools. Perfect for teams looking to streamline their React Native development workflow and maintain design consistency across multiple apps.
 </p>
 
