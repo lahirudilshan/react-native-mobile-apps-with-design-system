@@ -1,6 +1,5 @@
-<p>
-  <img src="resources/images/logo.png" alt="Project Logo" height="200" />
-</p>
+
+<img src="resources/images/logo.png" alt="Project Logo" width="200" />
 
 <h1>React Native Apps with storybook and Design System</h1>
 
