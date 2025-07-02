@@ -1,14 +1,12 @@
-<div style="display: flex; align-items: center; gap: 32px;">
-  <div style="flex: 0 0 320px;">
-    <img src="https://github.com/lahirudilshan/react-native-mobile-apps-with-design-system/blob/main/resources/images/logo.png" alt="Project Logo" height="320"/>
-  </div>
-  <div style="flex: 1;">
-    <h1>React Native Apps with storybook and Design System</h1>
-    <p>
-      A powerful React Native monorepo starter kit featuring a shared design system, Storybook integration, and TypeScript support. Build scalable, consistent mobile applications with reusable components, comprehensive documentation, and modern development tools. Perfect for teams looking to streamline their React Native development workflow and maintain design consistency across multiple apps.
-    </p>
-  </div>
-</div>
+<p align="left">
+  <img src="resources/images/logo.png" alt="Project Logo" height="200" />
+</p>
+
+<h1 align="center">React Native Apps with storybook and Design System</h1>
+
+<p align="center">
+  A powerful React Native monorepo starter kit featuring a shared design system, Storybook integration, and TypeScript support. Build scalable, consistent mobile applications with reusable components, comprehensive documentation, and modern development tools. Perfect for teams looking to streamline their React Native development workflow and maintain design consistency across multiple apps.
+</p>
 
 ---
 
