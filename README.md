@@ -17,7 +17,7 @@
 - **TypeScript**  
 - **Storybook**: v9  
 - **Monorepo**: Yarn Workspaces  
-- **Component Library**: Mobile Design System  
+- **Component Library**: mobile-design-system 
 
 ---
 
