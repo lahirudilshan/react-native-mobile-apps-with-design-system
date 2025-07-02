@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.png" alt="Project Logo" height="120"/>
+  <img src="https://github.com/lahirudilshan/react-native-mobile-apps-with-design-system/blob/main/resources/images/logo.png" alt="Project Logo" height="120"/>
 </p>
 
 <h1 align="center">React Native Apps with storybook and Design System</h1>

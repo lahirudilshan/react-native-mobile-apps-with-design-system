@@ -71,14 +71,14 @@ const commonActions = {
   updateMetroConfig: {
     type: 'add',
     path: 'apps/{{name}}/metro.config.js',
-    templateFile: 'plop-templates/metro.config.js.hbs',
+    templateFile: 'resources/plop-templates/metro.config.js.hbs',
     force: true,
   },
   // Updates Android settings.gradle
   updateSettingsGradle: {
     type: 'add',
     path: 'apps/{{name}}/android/settings.gradle',
-    templateFile: 'plop-templates/settings.gradle.hbs',
+    templateFile: 'resources/plop-templates/settings.gradle.hbs',
     force: true,
   },
   // Updates Android build.gradle with correct paths
@@ -116,8 +116,8 @@ const commonActions = {
   copyFiles: {
     type: 'addMany',
     destination: 'apps/{{name}}/',
-    base: 'plop-templates/copy-files',
-    templateFiles: 'plop-templates/copy-files/**/*',
+    base: 'resources/plop-templates/copy-files',
+    templateFiles: 'resources/plop-templates/copy-files/**/*',
     force: true,
     verbose: true, // Add this to see more details
     globOptions: {
