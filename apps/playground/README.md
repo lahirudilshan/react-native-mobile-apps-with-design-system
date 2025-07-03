@@ -1,97 +1,198 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Playground App
 
-# Getting Started
+A React Native development and testing environment for the mobile design system components with comprehensive Storybook integration.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🎯 Purpose
 
-## Step 1: Start Metro
+The Playground app serves as the primary development and testing environment for:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Component Development**: Interactive testing of design system components
+- **Storybook Integration**: Both mobile and web Storybook support
+- **Visual Testing**: Component documentation and visual regression testing
+- **Cross-Platform Testing**: iOS and Android compatibility validation
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🚀 Tech Stack
 
-```sh
-# Using npm
-npm start
+- **React Native**: 0.80.1
+- **React**: 19.1.0
+- **TypeScript**: Full type safety
+- **Storybook**: v9 with React Native Web support
+- **Vitest**: Unit testing framework
+- **ESLint**: Code linting with Storybook rules
 
-# OR using Yarn
-yarn start
+## 📦 Key Features
+
+### 🎭 Dual Storybook Support
+
+- **Web Storybook**: Runs on localhost:6006 for browser-based component testing
+- **React Native Storybook**: Native mobile component testing
+- **Unified Stories**: Shared stories across both platforms
+
+### 🧩 Component Testing
+
+- **Design System Components**: Avatar, Badge, Button, UserCard, ProductCard
+- **App-Specific Components**: ProfileCard with comprehensive stories
+- **Interactive Controls**: Real-time prop manipulation
+- **Theme Testing**: Light/dark mode switching
+
+### 🛠 Development Tools
+
+- **Hot Reloading**: Instant feedback during development
+- **Cache Management**: Built-in cache clearing utilities
+- **Accessibility Testing**: A11y addon integration
+- **Deep Controls**: Advanced component prop manipulation
+
+## 📁 Project Structure
+
+```
+apps/playground/
+├── .storybook/              # Web Storybook configuration
+│   └── main.ts              # Stories discovery and addons
+├── .rnstorybook/            # React Native Storybook config
+├── src/
+│   └── components/
+│       └── profile-card/    # Example component with stories
+│           ├── ProfileCard.tsx
+│           ├── ProfileCard.stories.tsx
+│           └── index.ts
+├── android/                 # Android native code
+├── ios/                     # iOS native code
+├── __tests__/               # Test files
+├── App.tsx                  # Main app component
+├── package.json             # Dependencies and scripts
+├── vitest.config.ts         # Vitest configuration
+└── README.md                # This file
 ```
 
-## Step 2: Build and run your app
+## 📜 Available Scripts
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### 🏃‍♂️ Development
 
-### Android
+```bash
+# Start React Native Metro bundler
+yarn start
 
-```sh
-# Using npm
-npm run android
+# Start with cache reset
+yarn start-reset
 
-# OR using Yarn
+# Run on iOS simulator
+yarn ios
+
+# Run on Android emulator
 yarn android
 ```
 
-### iOS
+### 📚 Storybook
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+```bash
+# Start web Storybook (localhost:6006)
+yarn storybook
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+# Generate story files
+yarn storybook:generate
 
-```sh
-bundle install
+# Build Storybook for production
+yarn storybook:build
+
+# Clean Storybook cache
+yarn storybook:clean
 ```
 
-Then, and every time you update your native dependencies, run:
+### 🧪 Testing & Quality
 
-```sh
-bundle exec pod install
+```bash
+# Run unit tests
+yarn test
+
+# Run ESLint
+yarn lint
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 🎨 Storybook Configuration
 
-```sh
-# Using npm
-npm run ios
+### Story Discovery
 
-# OR using Yarn
-yarn ios
-```
+Automatically discovers stories from:
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+- `../../../apps/miniApps/src/**/*.stories.?(ts|tsx|js)`
+- `../../../packages/mobile-design-system/src/**/*.stories.?(ts|tsx|js)`
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Addons
 
-## Step 3: Modify your app
+- **@storybook/addon-react-native-server**: React Native support
+- **storybook-addon-deep-controls**: Advanced prop controls
+- **@chromatic-com/storybook**: Visual testing
+- **@storybook/addon-docs**: Documentation generation
+- **@storybook/addon-a11y**: Accessibility testing
+- **@storybook/addon-vitest**: Test integration
 
-Now that you have successfully run the app, let's make changes!
+## 🧩 Example Components
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### ProfileCard
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+A comprehensive example component demonstrating:
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- Design system integration (Avatar, Badge, Button)
+- Theme provider usage
+- Interactive Storybook stories
+- TypeScript props interface
+- Responsive styling
 
-## Congratulations! :tada:
+## 🚀 Getting Started
 
-You've successfully run and modified your React Native App. :partying_face:
+1. **Install dependencies** (from project root):
 
-### Now what?
+   ```bash
+   yarn install
+   ```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+2. **Build design system**:
 
-# Troubleshooting
+   ```bash
+   yarn package:build
+   ```
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+3. **Start Storybook**:
 
-# Learn More
+   ```bash
+   cd apps/playground
+   yarn storybook
+   ```
 
-To learn more about React Native, take a look at the following resources:
+   Open http://localhost:6006 in your browser
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+4. **Run on mobile**:
+
+   ```bash
+   # iOS
+   yarn ios
+
+   # Android
+   yarn android
+   ```
+
+## 🔧 Development Workflow
+
+1. **Component Development**: Create components in `src/components/`
+2. **Story Creation**: Add `.stories.tsx` files for Storybook
+3. **Testing**: Write unit tests in `__tests__/`
+4. **Visual Testing**: Use Storybook for visual regression testing
+5. **Integration**: Test components in the main App.tsx
+
+## 🎯 Use Cases
+
+- **Design System Development**: Primary environment for component creation
+- **Component Documentation**: Interactive documentation via Storybook
+- **Visual Testing**: Cross-platform component validation
+- **Prototyping**: Rapid UI prototyping and testing
+- **Team Collaboration**: Shared component library showcase
+
+## 🔗 Related
+
+- **Mobile Design System**: `../../packages/mobile-design-system/`
+- **MiniApps**: `../miniApps/` - Example implementation
+- **Root Scripts**: Available from project root for convenience
+
+---
+
+**Built for efficient React Native component development and testing**

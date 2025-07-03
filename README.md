@@ -1,43 +1,41 @@
-
 <img src="resources/images/logo.png" alt="Project Logo" width="200" />
 
-<h1>React Native Apps with storybook and Design System</h1>
+<h1>React Native Apps with Storybook and Design System</h1>
 
 <p>
-  A powerful React Native monorepo starter kit featuring a shared design system, Storybook integration, and TypeScript support. Build scalable, consistent mobile applications with reusable components, comprehensive documentation, and modern development tools. Perfect for teams looking to streamline their React Native development workflow and maintain design consistency across multiple apps.
+  A powerful React Native monorepo starter kit featuring a comprehensive shared design system, Storybook integration, and TypeScript support. Build scalable, consistent mobile applications with reusable components, theme system, utilities, and modern development tools. Perfect for teams looking to streamline their React Native development workflow and maintain design consistency across multiple apps.
 </p>
 
 ---
 
 ## 🚀 Tech Stack
 
-- **React Native**: 0.80.x  
-- **React**: 19.1.x  
-- **TypeScript**  
-- **Storybook**: v9  
-- **Monorepo**: Yarn Workspaces  
-- **Component Library**: mobile-design-system 
+-   **React Native**: 0.80.x
+-   **React**: 19.1.x
+-   **TypeScript**
+-   **Storybook**: v9
+-   **Monorepo**: Yarn Workspaces
+-   **Component Library**: mobile-design-system
 
 ---
 
 ## 🛠️ Development Environment
 
-| Tool                | Version                          |
-|---------------------|----------------------------------|
-| Node.js             | 21+ (see `.nvmrc`)               |
-| Java JDK            | 17 (see `.java-version`)         |
-| Yarn                | 4.8.1                            |
-| Android Build Tools | 35.0.0                           |
-| Android SDK         | Min: 24 / Target & Compile: 35   |
-| NDK                 | 27.1.12297006                    |
-| Kotlin              | 2.1.20                           |
+| Tool                | Version                        |
+| ------------------- | ------------------------------ |
+| Node.js             | 21+ (see `.nvmrc`)             |
+| Java JDK            | 17 (see `.java-version`)       |
+| Yarn                | 4.8.1                          |
+| Android Build Tools | 35.0.0                         |
+| Android SDK         | Min: 24 / Target & Compile: 35 |
+| NDK                 | 27.1.12297006                  |
+| Kotlin              | 2.1.20                         |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-
 ├── apps/
 │   ├── miniApps/                  # Feature-specific RN app
 │   │   ├── android/               # Android native code
@@ -61,10 +59,21 @@
 ├── packages/
 │   └── mobile-design-system/      # Shared UI component library
 │       ├── src/                   # Source code
-│       │   ├── components/        # UI components
+│       │   ├── components/        # Basic UI components
 │       │   │   ├── avatar/        # Avatar component
 │       │   │   ├── badge/         # Badge component
 │       │   │   └── button/        # Button component
+│       │   ├── widgets/           # Complex components
+│       │   │   └── UserCard/      # User card widget
+│       │   ├── domain/            # Domain-specific components
+│       │   │   └── ecommerce/     # E-commerce components
+│       │   │       └── ProductCard/ # Product card component
+│       │   ├── providers/         # Context providers
+│       │   │   └── theme-provider/ # Theme management
+│       │   ├── tokens/            # Design tokens
+│       │   ├── utils/             # Utility functions
+│       │   │   ├── formatters/    # Data formatters
+│       │   │   └── validators/    # Validation utilities
 │       │   └── index.ts           # Main exports
 │       ├── package.json           # Package dependencies
 │       └── tsconfig.json          # TypeScript configuration
@@ -74,34 +83,63 @@
 ├── .vscode/                       # VS Code configuration
 ├── package.json                   # Root dependencies
 └── yarn.lock                      # Dependency lock file
-
 ```
 
 ---
 
 ## 🎨 Mobile Design System
 
-Located at `packages/mobile-design-system/`, this package contains reusable UI components with individual Storybook stories.
+Located at `packages/mobile-design-system/`, this package contains a comprehensive collection of reusable UI components, widgets, domain-specific components, theme system, and utilities.
 
-### Available Components
+### 🧩 Available Components
 
-- **Avatar** – Supports image or initials with `small`, `medium`, `large` sizes.
-- **Badge** – Display status or notifications.
-- **Button** – `primary`, `secondary`, `outline` variants in multiple sizes.
+#### Basic Components
+
+-   **Avatar** – Profile pictures with fallback support (small, medium, large sizes)
+-   **Badge** – Status indicators, notifications, and labels
+-   **Button** – Multiple variants (primary, secondary, outline) and sizes
+
+#### Complex Widgets
+
+-   **UserCard** – User information display with actions and status indicators
+
+#### Domain-Specific Components
+
+-   **ProductCard** – E-commerce product display with pricing, ratings, and actions
+
+### 🎭 Theme System
+
+-   **ThemeProvider** – Context provider for theme management
+-   **useTheme** – Hook for accessing and toggling themes
+-   **Design Tokens** – Spacing, colors, typography, and border radius tokens
+-   **Light/Dark Mode** – Built-in theme switching support
+
+### 🛠 Utilities
+
+-   **Formatters** – Currency, date, and text formatting functions
+-   **Validators** – Email, phone, password, and credit card validation
+
+### 📚 Storybook Integration
+
+Comprehensive Storybook documentation with interactive examples for all components including:
+
+-   Avatar variations and fallback states
+-   Badge variants and styling options
+-   Button states and interactions
+-   UserCard with different user types and statuses
+-   ProductCard with various product scenarios
 
 ---
 
 ## 🧪 Playground App
 
-Located at `apps/playground/`, this React Native app is for developing and testing UI components.  
-Uses React Native `0.80.1`, React `19.1.0`, and integrates with Storybook v9.
+Located at `apps/playground/`, this React Native app serves as the development and testing environment for UI components. Features React Native 0.80.1, React 19.1.0, and full Storybook v9 integration for both mobile and web platforms.
 
 ---
 
 ## 📱 MiniApps
 
-Located at `apps/miniApps/`, this is a demo application showing usage of the design system components like `ProfileCard`.  
-Uses React Native `0.80.0` and React `19.1.0`.
+Located at `apps/miniApps/`, this demo application showcases real-world usage of the design system components. Uses React Native 0.80.0 and React 19.1.0 with examples like ProfileCard implementation.
 
 ---
 
@@ -176,44 +214,68 @@ yarn test
 ## 🚀 Getting Started
 
 1. **Install dependencies**:
-   ```bash
-   yarn install
-   ```
+
+    ```bash
+    yarn install
+    ```
 
 2. **Build the design system**:
-   ```bash
-   yarn package:build
-   ```
 
-3. **Run Playground App to see storybook**:
-   ```bash
-   # Start
-   yarn playground:dev
-   ```
+    ```bash
+    yarn package:build
+    ```
+
+3. **Run Playground App to see Storybook**:
+
+    ```bash
+    # Start development environment
+    yarn playground:dev
+
+    # Or run Storybook directly
+    yarn storybook:mobile
+    ```
 
 4. **Run MiniApps**:
-   ```bash
-   # Start Metro
-   yarn miniApps:dev
-   ```
+    ```bash
+    # Start Metro and demo app
+    yarn miniApps:dev
+    ```
+
+---
+
+## 🎯 Key Features
+
+-   **Comprehensive Component Library** with basic components, complex widgets, and domain-specific components
+-   **Advanced Theme System** with light/dark mode support and customizable design tokens
+-   **TypeScript Support** for full type safety and enhanced developer experience
+-   **Storybook Integration** for interactive component documentation and testing
+-   **Utility Functions** including formatters and validators for common use cases
+-   **Cross-Platform Compatibility** ensuring seamless iOS and Android support
+-   **Monorepo Architecture** with Yarn Workspaces for efficient development workflow
 
 ---
 
 ## ✅ Code Quality Tools
 
-- **ESLint** – Code linting
-- **Prettier** – Formatting
-- **Lefthook / Husky** – Git hooks
+-   **ESLint** – Code linting with custom rules
+-   **Prettier** – Consistent code formatting
+-   **Lefthook / Husky** – Git hooks for pre-commit validation
+-   **TypeScript** – Static type checking
 
 ---
 
 ## 🧪 Testing
 
-- **Vitest** – Unit testing in Playground
-- **Storybook** – Component testing & documentation
+-   **Vitest** – Unit testing framework in Playground app
+-   **Storybook** – Component testing and visual documentation
+-   **React Native Testing Library** – Component integration testing
 
 ---
 
 ## 📄 License
 
 [MIT](LICENSE)
+
+---
+
+**Built with ❤️ for scalable React Native development**
