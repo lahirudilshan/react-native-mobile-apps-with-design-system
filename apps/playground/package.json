@@ -1,6 +1,9 @@
 {
   "name": "playground",
   "version": "0.0.1",
+  "author": {
+    "name": "Lahiru Dilshan"
+  },
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -15,7 +18,6 @@
     "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
-    "@react-native/new-app-screen": "0.80.1",
     "react": "19.1.0",
     "react-native": "0.80.1"
   },

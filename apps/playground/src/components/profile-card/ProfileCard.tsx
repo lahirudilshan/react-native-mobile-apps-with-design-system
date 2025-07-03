@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Avatar, Badge, Button } from '@fbn/mobile-design-system';
+import { Badge, Button, Avatar } from '@fbn/mobile-design-system';
 
 export interface ProfileCardProps {
   name: string;
@@ -40,9 +40,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         </View>
       </View>
       <View style={styles.footer}>
-        <Button 
-          title="View Profile" 
-          onPress={onPress} 
+        <Button
+          title="View Profile"
+          onPress={onPress}
           variant="primary"
           size="medium"
         />

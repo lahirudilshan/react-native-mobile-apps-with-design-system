@@ -1,94 +1,106 @@
-import React from 'react';
+import { useTheme } from '../../providers/theme-provider';
+import React, { useMemo, memo } from 'react';
 import { View, Text, StyleSheet, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
-export interface BadgeProps {
-  label: string;
-  variant?: 'primary' | 'success' | 'warning' | 'error';
-  size?: 'small' | 'medium' | 'large';
-  style?: StyleProp<ViewStyle>;
-  textStyle?: StyleProp<TextStyle>;
-}
-
-export const Badge: React.FC<BadgeProps> = ({
-  label,
-  variant = 'primary',
-  size = 'medium',
-  style,
-  textStyle,
-}) => {
-  const badgeStyles = [
-    styles.badge,
-    styles[`${variant}Badge`],
-    styles[`${size}Badge`],
+// Internal component that receives theme props
+const Badge: React.FC<BadgeProps> = ({
+    label,
+    variant = 'primary',
+    size = 'medium',
     style,
-  ];
-
-  const textStyles = [
-    styles.text,
-    styles[`${variant}Text`],
-    styles[`${size}Text`],
     textStyle,
-  ];
+}) => {
+    // hooks
+    const { theme } = useTheme();
+    // Memoized dynamic styles that depend on theme
+    const dynamicStyles = useMemo(() => {
+        const variantColors = {
+            primary: theme.color.badge?.primary,
+            success: theme.color.badge?.success,
+            warning: theme.color.badge?.warning,
+            error: theme.color.badge?.error,
+        };
 
-  return (
-    <View style={badgeStyles}>
-      <Text style={textStyles}>{label}</Text>
-    </View>
-  );
+        const sizeConfig = {
+            small: {
+                paddingHorizontal: theme.spacing.xs,
+                paddingVertical: theme.spacing.xs / 2,
+                fontSize: theme.typography.fontSize?.xs || 12,
+            },
+            medium: {
+                paddingHorizontal: theme.spacing.sm,
+                paddingVertical: theme.spacing.xs,
+                fontSize: theme.typography.fontSize?.sm || 14,
+            },
+            large: {
+                paddingHorizontal: theme.spacing.md,
+                paddingVertical: theme.spacing.sm,
+                fontSize: theme.typography.fontSize?.base || 16,
+            },
+        };
+
+        const currentVariant = variantColors[variant];
+        const currentSize = sizeConfig[size];
+
+        return StyleSheet.create({
+            badgeContainer: {
+                ...staticStyles.badge,
+                backgroundColor: currentVariant.background,
+                borderRadius: theme.radius?.full || 999,
+                paddingHorizontal: currentSize.paddingHorizontal,
+                paddingVertical: currentSize.paddingVertical,
+            },
+            badgeText: {
+                ...staticStyles.text,
+                color: currentVariant.text,
+                fontSize: currentSize.fontSize,
+                fontWeight: theme.typography.fontWeight?.semibold || '600',
+            },
+        });
+    }, [theme, variant, size]);
+
+    // Memoized style arrays
+    const badgeStyles = useMemo(
+        () => [dynamicStyles.badgeContainer, style],
+        [dynamicStyles.badgeContainer, style],
+    );
+
+    const textStyles = useMemo(
+        () => [dynamicStyles.badgeText, textStyle],
+        [dynamicStyles.badgeText, textStyle],
+    );
+
+    return (
+        <View style={badgeStyles}>
+            <Text style={textStyles} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8}>
+                {label}
+            </Text>
+        </View>
+    );
 };
 
-const styles = StyleSheet.create({
-  badge: {
-    borderRadius: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  primaryBadge: {
-    backgroundColor: '#007AFF',
-  },
-  successBadge: {
-    backgroundColor: '#34C759',
-  },
-  warningBadge: {
-    backgroundColor: '#FF9500',
-  },
-  errorBadge: {
-    backgroundColor: '#FF3B30',
-  },
-  smallBadge: {
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-  },
-  mediumBadge: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  largeBadge: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-  },
-  text: {
-    fontWeight: '600',
-  },
-  primaryText: {
-    color: '#FFFFFF',
-  },
-  successText: {
-    color: '#FFFFFF',
-  },
-  warningText: {
-    color: '#FFFFFF',
-  },
-  errorText: {
-    color: '#FFFFFF',
-  },
-  smallText: {
-    fontSize: 10,
-  },
-  mediumText: {
-    fontSize: 12,
-  },
-  largeText: {
-    fontSize: 14,
-  },
+// types
+export type BadgeProps = {
+    label: string;
+    variant?: 'primary' | 'success' | 'warning' | 'error';
+    size?: 'small' | 'medium' | 'large';
+    style?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
+    testID?: string;
+    accessibilityLabel?: string;
+};
+
+//styles
+const staticStyles = StyleSheet.create({
+    badge: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    text: {
+        textAlign: 'center',
+        includeFontPadding: false,
+    },
 });
+
+// Export the themed version
+export default memo(Badge);

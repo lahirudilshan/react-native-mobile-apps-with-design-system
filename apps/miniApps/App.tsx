@@ -1,12 +1,13 @@
+import React from 'react';
 import { StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { ThemeProvider } from '@fbn/mobile-design-system';
 import { ProfileCard } from './src/components';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const systemColorScheme = useColorScheme();
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+    <ThemeProvider initialTheme={systemColorScheme || 'light'}>
       <View style={styles.container}>
         <StatusBar barStyle={'light-content'} />
         <View>
@@ -29,7 +30,7 @@ function App() {
           </View>
         </View>
       </View>
-    </View>
+    </ThemeProvider>
   );
 }
 

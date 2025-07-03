@@ -1721,11 +1721,11 @@ __metadata:
     "@react-native-community/cli-platform-ios": "npm:^19.0.0"
     "@react-native/metro-config": "npm:^0.80.0"
     react: "npm:19.1.0"
-    react-native: "npm:^0.80.0"
+    react-native: "npm:^0.80.1"
     typescript: "npm:^5.8.3"
   peerDependencies:
     react: 19.1.0
-    react-native: ^0.80.0
+    react-native: ^0.80.1
   languageName: unknown
   linkType: soft
 
@@ -2899,20 +2899,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10/51542e5cbff8f7dcda987a00aaa98f428e7651fea8551c9606d31ab089237b24136f1f1d98717502c84935268fd0e876894973a83ed26c654fd5608b15b579c8
-  languageName: node
-  linkType: hard
-
-"@react-native/new-app-screen@npm:0.80.1":
-  version: 0.80.1
-  resolution: "@react-native/new-app-screen@npm:0.80.1"
-  peerDependencies:
-    "@types/react": ^19.0.0
-    react: "*"
-    react-native: "*"
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 10/63146921654bef0a22622d411a88cc5bf457b7bfcb25ef63078fda034a104eaa932d3728cf774490a0f7c91c04bf4dc9d08b3cae8adcec414980119fd7d84ddc
   languageName: node
   linkType: hard
 
@@ -10558,7 +10544,6 @@ __metadata:
     "@react-native/babel-preset": "npm:0.80.1"
     "@react-native/eslint-config": "npm:0.80.1"
     "@react-native/metro-config": "npm:0.80.1"
-    "@react-native/new-app-screen": "npm:0.80.1"
     "@react-native/typescript-config": "npm:0.80.1"
     "@storybook/addon-a11y": "npm:^9.0.15"
     "@storybook/addon-docs": "npm:^9.0.15"
@@ -11026,7 +11011,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:*, react-native@npm:0.80.1, react-native@npm:^0.80.0":
+"react-native@npm:*, react-native@npm:0.80.1, react-native@npm:^0.80.1":
   version: 0.80.1
   resolution: "react-native@npm:0.80.1"
   dependencies:

@@ -2,6 +2,9 @@
   "name": "test",
   "packageManager": "yarn@4.8.1",
   "private": true,
+  "author": {
+    "name": "Lahiru Dilshan"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"

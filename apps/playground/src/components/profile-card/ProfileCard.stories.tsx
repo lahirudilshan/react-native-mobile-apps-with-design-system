@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { ProfileCard } from './index';
 import type { Meta, StoryObj } from '@storybook/react-native';
+import { ThemeProvider } from '@fbn/mobile-design-system';
 
 const meta: Meta<typeof ProfileCard> = {
   title: 'MiniApps/ProfileCard',
@@ -58,7 +59,9 @@ export const Offline: Story = {
   },
   render: args => (
     <View style={{ padding: 20 }}>
-      <ProfileCard {...args} />
+      <ThemeProvider>
+        <ProfileCard {...args} />
+      </ThemeProvider>
     </View>
   ),
 };

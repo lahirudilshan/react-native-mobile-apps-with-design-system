@@ -1,5 +1,8 @@
 {
   "name": "@fbn/mobile-design-system",
+  "author": {
+    "name": "Lahiru Dilshan"
+  },
   "version": "1.0.0",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -23,17 +26,13 @@
     "deps:check": "rnx-align-deps",
     "deps:fix": "rnx-align-deps --write"
   },
-  "packageManager": "yarn@4.8.1",
-  "engines": {
-    "node": ">=21.0.0"
-  },
   "devDependencies": {
     "@react-native-community/cli": "^19.0.0",
     "@react-native-community/cli-platform-android": "^19.0.0",
     "@react-native-community/cli-platform-ios": "^19.0.0",
     "@react-native/metro-config": "^0.80.0",
     "react": "19.1.0",
-    "react-native": "^0.80.0",
+    "react-native": "^0.80.1",
     "typescript": "^5.8.3"
   },
   "rnx-kit": {
@@ -50,6 +49,10 @@
   },
   "peerDependencies": {
     "react": "19.1.0",
-    "react-native": "^0.80.0"
+    "react-native": "^0.80.1"
+  },
+  "packageManager": "yarn@4.8.1",
+  "engines": {
+    "node": ">=21.0.0"
   }
 }
