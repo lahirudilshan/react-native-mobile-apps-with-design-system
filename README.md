@@ -148,14 +148,23 @@ Located at `apps/miniApps/`, this demo application showcases real-world usage of
 ### 🔧 Root Scripts
 
 ```bash
+# create new react native app
+yarn new-app            # create new react native app under /apps folder
+
 # Linting & Formatting
 yarn lint               # Run ESLint
 yarn lint:fix           # Auto-fix ESLint issues
 yarn format             # Format with Prettier
+yarn format:check       # Check which files need to format
 
 # Dependency Management
 yarn deps:check         # Check dependency alignment
 yarn deps:fix           # Fix dependencies via rnx-align-deps
+
+# cleaning
+yarn nm-clean               # remove node_modules and *.lock files
+yarn watch-clear            # clear watchman cache
+yarn deep-clean             # full clean up like cache clean, node_modules delete, watchman reset, app cleanup etc
 
 # Storybook
 yarn storybook:web          # Run Storybook for web
